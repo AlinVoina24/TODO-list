@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", "Segoe UI", sans-serif;
+    /* Fundal: gradient negru -> albastru neon */
+    background: linear-gradient(135deg, #000000 0%, #001f3f 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 28px;
+    color: #9ef4ff; /* text albastru neon deschis */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    width: 100%;
+    max-width: 520px;
+    padding: 36px;
+    border-radius: 20px;
+    /* Container albastru neon mai deschis, umbra usoara */
+    background: rgba(0, 217, 255, 0.06);
+    border: 1px solid rgba(0, 217, 255, 0.18);
+    box-shadow: 0 10px 30px rgba(0, 217, 255, 0.06), 0 2px 6px rgba(0,0,0,0.45);
+    backdrop-filter: blur(6px);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 22px;
+    font-size: 26px;
+    color: #bffcff; /* albastru neon deschis pentru titlu */
+    text-shadow: 0 2px 18px rgba(0, 217, 255, 0.25);
+    letter-spacing: 0.2px;
+}
+
+/* Input + butoane */
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 22px;
+    align-items: center;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid rgba(159, 242, 255, 0.14);
+    border-radius: 14px;
+    background: rgba(255,255,255,0.03);
+    color: #dffcff;
+    font-family: inherit;
+    font-size: 14px;
+    transition: all 0.18s ease;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+}
+
+input[type="text"]::placeholder {
+    color: rgba(159, 242, 255, 0.5);
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: rgba(0,217,255,0.6);
+    box-shadow: 0 6px 20px rgba(0,217,255,0.08);
+}
+
+/* Butoane mici, rotunde, roz neon */
+button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #ff8ad1 0%, #ff3aa2 100%);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13px;
+    transition: all 0.18s ease;
+    box-shadow: 0 6px 18px rgba(255, 58, 162, 0.12);
+    min-width: 48px;
+    height: 36px;
+}
+
+/* Hover: mai stralucitor */
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(255, 58, 162, 0.18);
+    filter: brightness(1.05);
+}
+
+button:active { transform: translateY(0); }
+
+/* Lista task-uri */
+.tasks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Task: margini rotunjite si spacing uniform */
+.task {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: rgba(0, 217, 255, 0.04);
+    border: 1px solid rgba(0,217,255,0.08);
+    transition: all 0.18s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+.task:hover {
+    transform: translateY(-2px);
+    background: rgba(0,217,255,0.06);
+    border-color: rgba(0,217,255,0.16);
+}
+
+/* Checkbox neon accent */
+.task input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #ff6abf; /* roz neon pentru checkbox */
+    flex-shrink: 0;
+}
+
+/* Text task */
+.task span {
+    flex: 1;
+    color: #dffcff;
+    font-size: 14px;
+    word-break: break-word;
+    transition: color 0.18s ease, opacity 0.18s ease, text-decoration 0.18s ease;
+}
+
+/* Task completat = roz neon deschis + text taiat */
+.task input[type="checkbox"]:checked + span {
+    color: #ffc0e8; /* roz neon deschis */
+    text-decoration: line-through;
+    opacity: 0.85;
+}
+
+/* Actiuni per task (ex: sterge) */
+.task button {
+    padding: 6px 10px;
+    font-size: 12px;
+    background: rgba(255, 58, 162, 0.95);
+    border-radius: 10px;
+    min-width: auto;
+    box-shadow: 0 6px 14px rgba(255, 58, 162, 0.08);
+}
+
+.task button:hover { background: #ff2fa2; transform: translateY(-1px); }
+
+/* Empty state */
+.empty-state {
+    text-align: center;
+    color: rgba(159, 242, 255, 0.6);
+    padding: 36px 18px;
+    font-size: 14px;
+}
+
+/* Responsive & aerisit */
+@media (max-width: 480px) {
+    .container { padding: 20px; }
+    h1 { font-size: 20px; }
+    .input-group { flex-direction: column; gap: 8px; }
+    button { width: 100%; }
+    .task { padding: 10px 12px; gap: 10px; }
+}
